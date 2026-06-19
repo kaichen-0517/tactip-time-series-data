@@ -1,0 +1,31 @@
+# @package _global_
+
+defaults:
+  - /runtime/base
+  - /collect: surface_zRxy_ur # surface_z_ur_Silvia
+  - _self_
+
+collect:
+  name: surface-zRxy-June19-fixed_speed
+  sample_nums: 1000
+  experiment: ${collect.robot}/${sensor.name}/${collect.name}
+  ip: 192.168.1.164
+  fixed_speed: true
+
+sensor:
+  name: tactip-127
+  camera:
+    camera_name: /dev/video0 # /dev/video0 # video=HD USB Camera
+    exposure: 10
+    width: 1920 # 1920 # 640 # 1024 # 1280
+    height: 1080 # 1080 # 480 # 768 # 960
+    fps: 120.0
+    writer_workers: 8 # Concurrent image writers (increase carefully)
+    png_compression: 1
+    storage_format: zip # png # zip
+  process_images:
+    greyscale_on: false
+
+ft_sensor:
+  ip: 192.168.1.187 # 192.168.1.1
+  port: 49152

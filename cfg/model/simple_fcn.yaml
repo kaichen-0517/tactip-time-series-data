@@ -1,0 +1,30 @@
+name: simple_fcn
+n_epochs: 100
+
+kwargs:
+  fc_layers: 
+    - ${sensor.process_markers.num_markers}
+    - ${sensor.process_markers.num_markers}
+  activation: relu
+  dropout: 0.0
+  apply_batchnorm: False
+
+loader:
+  batch_size: 128
+  shuffle: true
+  num_workers: 0
+
+optimizer:
+  lr: 0.001
+  betas: [0.9, 0.999]
+  weight_decay: 0.000001
+
+scheduler: ReduceLROnPlateau
+lr_scheduler:
+  factor: 0.5
+  patience: 3
+
+preprocess:
+  data_type: kps
+  num_markers: ${sensor.process_markers.num_markers}
+    

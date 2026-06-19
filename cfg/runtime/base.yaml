@@ -1,0 +1,22 @@
+# @package _global_
+# Parent configuration for tg3 scripts. Defines the options for all scripts, and their defaults
+# Also sets hydra options to give desired behaviour (e.g. don't create temp dirs to save output)
+
+# Command-line options are set at runtime, these let the user set what to do.
+# Can be overridden on the command line with e.g. uv run python tg3/data/collect.py path="my_path"
+# Override list options with bracket syntax  e.g. uv run python tg3/data/collect.py sample_nums=[200,150] data_dirs=["data_train","data_test"]
+
+# Defaults can be overridden in app-specific config files
+
+# Sets where hydra finds configuration files
+defaults:
+ - /settings
+ - _self_
+
+# Hydra options to control runtime behaviour
+hydra:
+  job:
+    chdir: false         # Otherwise hydra defaults to saving in outputs/temporary dirs
+  output_subdir: null    # Don't create a .hydra/ metadata directory
+  sweep:
+    dir: .               # When doing a multirun, keep outputs under the same dir

@@ -1,0 +1,37 @@
+# @package _global_
+# Runtime options for train.py
+
+defaults:
+ - /runtime/base
+ - /model: graph_edge # simple_cnn_mdn
+ - /collect: spheres_xy_ur # edge_yRz_ur # spheres_xy_ur # surface_zRxy_ur # 
+ - /sensor: tactip_flat217_ur # tactip_flat217_ur # tactip_dome331_ur # 
+ - _self_
+
+device: cuda
+
+globals:
+  REFERENCE: null 
+
+model:
+  early_stopping: 100
+
+train:
+  train_dirs: [train]
+  val_dirs: [val]
+  experiment: ${collect.robot}/${sensor.name}/${collect.name}
+
+  # name: regress/pose_yRz-CC  
+  # regressors: [pose_y, pose_Rz]
+  # kwargs:
+  #   periodics: [pose_Rz]
+
+
+  # name: regress/pose_zRxy  
+  # regressors: [pose_z, pose_Rx, pose_Ry]
+
+  name: regress/pose_xy-CC
+  regressors: [pose_x, pose_y]
+
+  # name: classify
+  # classes: [2mm, 3mm, 4mm, 5mm, 6mm, 7mm, 8mm, 9mm, 10mm]

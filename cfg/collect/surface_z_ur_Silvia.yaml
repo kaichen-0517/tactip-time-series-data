@@ -1,0 +1,15 @@
+name: surface-z-Silvia
+sample_nums: 10
+experiment: ${collect.robot}/${sensor.name}/${collect.name}
+robot: ur5
+ip: 192.168.6.6
+pose_lims: [[0, 0, 3, 0, 0, 0], [0, 0, 5, 0, 0, 0]]
+
+sort_on: true 
+real:
+  # SoftRobot Group UR5  base height including ft sensor 62.5mm
+  # tactip sensor 20mm (dome radius) + 82mm
+  tcp_pose: [0, 0, -82, 0, 0, 0] 
+  work_frame: [-500, -65, 82.5, 180, 0, 0]  # UR5 Test -- z 164.5mm on teachpendant
+  # work_frame: [240, 0, 0, -180, 0, 0]   # mg400 Test
+  free_speed: 50

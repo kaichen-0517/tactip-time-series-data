@@ -1,0 +1,27 @@
+# @package _global_
+# Runtime options for the process script
+
+defaults:
+ - /runtime/base
+ - /collect: surface_zRxy_ur # surface_z_ur_Silvia
+ - /sensor: tactip_dome127_ur # tactip_dome331_ur # tactip_dome127_ur
+ - _self_
+
+collect:
+  name: surface-zRxy-new-speed-1
+  # sample_nums: 10
+  data_dirs: [train, val]  
+  experiment: ${collect.robot}/${sensor.name}/${collect.name}
+
+globals:
+  REFERENCE: null 
+
+sensor:
+  # process_images: null
+
+  process_markers: # null
+    visualise_on: true
+    debug: true
+    process_graph: true
+
+

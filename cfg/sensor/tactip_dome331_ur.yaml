@@ -1,0 +1,20 @@
+name: tactip
+source: 1
+exposure: -7
+grayscale_on: false
+
+process_images:
+  crop: [305, 250, 190] # (cx, cy, r)  
+  circle_mask_radius: 190
+  greyscale_on: true
+  binary_threshold: [31, -20] # blocksize, offset
+
+process_markers:
+  num_markers: 331 
+  num_rings: 11
+  # detector_type: SkDog
+  edge_index_file: edge_index_circular_n11.npy
+  detector_type: CVConnectedComponent
+  detector_kwargs:
+    morphology_ksize: 7
+    size_filter: [0.3, 3]

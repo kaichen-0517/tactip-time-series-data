@@ -1,0 +1,40 @@
+name: tactip-127
+camera:
+  camera_name: /dev/video0 #video=HD USB Camera
+  exposure: 10
+  width: 1920 # 1920 # 640 # 1024 # 1280
+  height: 1080 # 1080 # 480 # 768 # 960
+  fps: 120.0
+  writer_workers: 4 # Concurrent image writers (increase carefully)
+  png_compression: 1
+
+process_images:
+  single_channel: blue
+  crop: [988, 509, 560]
+  circle_mask_radius: 560
+  led_masks:
+    [
+      [429, 331, 58],
+      [562, 905, 52],
+      [1124, 1069, 44],
+      [1551, 678, 50],
+      [1420, 104, 56],
+    ]
+
+process_markers:
+  num_markers: 127
+  num_rings: 7
+  backbone_offset_deg: 30
+  edge_index_file: edge_index_hex_n7.npy
+
+  # detector_type: SkDog
+  # detector_kwargs:
+  #   min_sigma: 5
+  #   max_sigma: 50
+  #   threshold: 0.03
+  #   overlap: 0.7
+  detector_type: CVConnectedComponent
+  detector_kwargs:
+    binary_threshold: [59, -29]
+    morphology_ksize: 11
+    size_filter: [0.3, 3]

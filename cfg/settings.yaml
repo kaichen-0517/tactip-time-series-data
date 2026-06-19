@@ -1,0 +1,17 @@
+settings:
+  path: /media/chris/Data/tactip-time-series-data/tactile_data
+  seed: 42                     # for repeatable random numbers
+  overwrite_on: false           # Overwrite existing data
+  restore_on: true             # Restore original data from backup before processing
+  device: cpu                  # Device to use: cpu or cuda
+
+globals:
+  IMAGE: time_series_images
+  OBJECT_CLASS: class
+  OBJECT_POSE: [object_x, object_y, object_z, object_Rx, object_Ry, object_Rz]
+  POSE: [pose_x, pose_y, pose_z, pose_Rx, pose_Ry, pose_Rz]
+  SHEAR: [shear_x, shear_y, shear_z, shear_Rx, shear_Ry, shear_Rz]
+  WRENCH: [force_x, force_y, force_z, torque_x, torque_y, torque_z]
+  SPEED: [linear_speed, angular_speed]
+  REFERENCE: 0
+  

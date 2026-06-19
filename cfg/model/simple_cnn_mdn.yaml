@@ -1,0 +1,51 @@
+name: simple_cnn_mdn
+n_epochs: 100
+early_stopping: 10
+
+kwargs:
+  in_channels: 1
+  conv_layers: [32, 32, 32, 32]
+  conv_kernel_sizes: [11, 9, 7, 5]
+  fc_layers: [512, 512]
+  activation: relu
+  apply_batchnorm: True
+  dropout: 0.0
+
+mdn_kwargs:   
+  base_out_dim: 128
+  n_cpts: 1 # not needed for GDN
+  p_mu: 0.1 # pi_dropout: 0.1
+  p_sigma_inv: 0.1 # sigma_inv_dropout: 0.1
+  p_pi: 0.1 # mu_dropout: 0.1
+
+loader:
+  batch_size: 32
+  shuffle: true
+  num_workers: 1
+
+optimizer:
+  lr: 0.0001
+  betas: [0.9, 0.999]
+  weight_decay: 0.000001
+
+scheduler: ReduceLROnPlateau
+lr_scheduler:
+  factor: 0.5
+  patience: 10
+
+preprocess:
+  data_type: images
+  dims: [128, 128]
+  normlz: true
+
+augment:
+  rshift: [0.025, 0.025]
+
+hyperopt:
+    max_evals: 20
+    n_startup_jobs: 8
+    space: 
+      # target_weights_1: hp.uniform(label="target_weights_1", low=0.5, high=1.5)
+      dropout: hp.uniform(label="dropout", low=0, high=0.5)
+      activation: hp.choice(label="activation", options=('relu', 'elu'))
+      conv_layers: hp.choice(label="conv_layers", options=([16,]*4, [32,]*4))

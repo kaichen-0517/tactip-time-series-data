@@ -1,0 +1,30 @@
+name: tactip-Silvia
+camera:
+  source: 2
+  exposure: 10
+  width: 1920 # 1920 # 640 # 1024 # 1280
+  height: 1080 # 1080 # 480 # 768 # 960
+  fps: 120.0
+
+process_images:
+  visualise_on: true
+  crop: [988, 509, 560]
+  circle_mask_radius: 560
+  single_channel: blue
+  led_masks: [[36, 400, 15], [155, 939, 15], [688, 1096, 15], [1088, 721, 15], [965, 184, 15], [440, 42, 15]]
+
+process_markers:
+  visualise_on: false
+  num_markers: 127
+  num_rings: 7
+  backbone_offset_deg: 30
+  edge_index_file: edge_index_hex_n7.npy
+
+  detector_type: CVConnectedComponent
+  image_scale: 1
+  detector_kwargs:
+    morphology_ksize: 5
+    size_filter: [0.5, 2]
+    binary_threshold: [83, -21]
+    
+

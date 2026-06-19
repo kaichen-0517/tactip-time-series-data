@@ -1,0 +1,41 @@
+# @package _global_
+
+defaults:
+  - /runtime/base
+  - /collect: surface_zRxy_ur # surface_z_ur_Silvia
+  - _self_
+
+settings:
+  overwrite_on: true # Overwrite existing data
+
+globals:
+  REFERENCE: null
+
+collect:
+  name: surface-zRxy-June19-calibration
+  sample_nums: 10
+  experiment: ${collect.robot}/${sensor.name}/${collect.name}
+  ip: 192.168.1.164
+  fixed_speed: false
+  run_calibration: true
+  pose_lims: [[0, 0, 3, 0, 0, 0], [0, 0, 3, 0, 0, 0]]
+  shear_lims: [[0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]]
+  speed_lims: [[30, 45], [30, 45]]
+
+sensor:
+  name: tactip-127
+  camera:
+    camera_name: /dev/video0 # /dev/video0 # video=HD USB Camera
+    exposure: 10
+    width: 1920 # 1920 # 640 # 1024 # 1280
+    height: 1080 # 1080 # 480 # 768 # 960
+    fps: 120.0
+    writer_workers: 8 # Concurrent image writers (increase carefully)
+    png_compression: 1
+    storage_format: zip # png # zip
+  process_images:
+    greyscale_on: false
+
+ft_sensor:
+  ip: 192.168.1.187 # 192.168.1.1
+  port: 49152
