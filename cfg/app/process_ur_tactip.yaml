@@ -8,7 +8,7 @@ defaults:
  - _self_
 
 collect:
-  name: surface-zRxy-new-speed-1
+  name: surface-zRxy-10Jun-calibrate-2
   # sample_nums: 10
   data_dirs: [train, val]  
   experiment: ${collect.robot}/${sensor.name}/${collect.name}

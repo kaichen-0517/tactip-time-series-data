@@ -24,7 +24,7 @@ process_images:
 process_markers:
   num_markers: 127
   num_rings: 7
-  backbone_offset_deg: 30
+  backbone_offset_deg: 0
   edge_index_file: edge_index_hex_n7.npy
 
   # detector_type: SkDog

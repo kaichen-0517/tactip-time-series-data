@@ -37,9 +37,12 @@ experiment/
 * **`image_data.csv`**
   Maps image filenames to their corresponding acquisition timestamps, recorded using Python's `time.perf_counter()`.
 
+<<<<<<< HEAD
 * **`control_data.csv`**
   Timestamps for control events, e.g. recording start and end ('start', 'end'), shear start and end ('shear_start', 'shear_end').
 
+=======
+>>>>>>> 2d1f4cf (update)
 * **`time_series_images/`**
   Directory containing the image sequence captured during the run.
 

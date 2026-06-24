@@ -1,0 +1,27 @@
+name: surface_zRxy
+robot: ur5
+ip: 192.168.1.164
+pose_lims: [[0, 0, 2, 0, 0, 0], [0, 0, 2, 0, 0, 0], [0, 0, 1, 0, 0, 0]]
+shear_lims: [[10, 10, 0, 0, 0, 0], [10, 10, 0, 0, 0, 0], [5, 5, 0, 0, 0, 0]]
+speed_lims: [[20, 40],[40, 80],[5, 10]] # linear speed, angular speed, mm/s
+fixed_speed: false
+classic_data: false
+shear_repeated_nums: 2
+experiment_repeated_nums: 20
+
+sort_on: false
+real:
+  # SoftRobot Group UR5: plate height + ft sensor height = 62.5mm
+  # + tactip sensor radius 20mm (dome) = 82mm
+  # tcp_pose: [0, 0, -88, 0, 0, 45]   # Chris sensor
+  # work_frame: [-501, -66, 79, 180, 0, 90]
+  # tcp_pose: [0, 0, -82, 0, 0, 45]
+  # work_frame: [-501, -66, 82, 180, 0, 90]  # UR5 (z 164mm shown on teachpendant)
+
+  # Chris UR5 (z 150mm shown on teachpendant)
+  tcp_pose: [0, 0, -82, 0, 0, 45]
+  work_frame: [84, -403, 68, 180, 0, 0] # [84, 406, -68, 180, 0, 0]
+
+  # work_frame: [-400, -66, 79, 180, 0, 90]
+  # work_frame: [240, 0, 0, -180, 0, 0]   # mg400 Test
+  free_speed: 50

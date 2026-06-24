@@ -6,22 +6,20 @@ defaults:
   - _self_
 
 settings:
-  overwrite_on: true # Overwrite existing data
-
-globals:
-  REFERENCE: null
+  seed: 42 
 
 collect:
-  name: surface-zRxy-June19-calibration-without_skin
-  sample_nums: 6
+  name: surface-zRxy-June19-classic
+  sample_nums: 2000
   experiment: ${collect.robot}/${sensor.name}/${collect.name}
   ip: 192.168.1.164
-  fixed_speed: false
-  run_calibration: true
-  classic_data: false
-  pose_lims: [[0, 0, 5, 0, 0, 0], [0, 0, 5, 0, 0, 0]]
-  shear_lims: [[0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]]
+  fixed_speed: true
+  classic_data: true
+  pose_lims: [[0, 0, 0.5, -20, -20, 0], [0, 0, 4, 20, 20, 0]]
+  shear_lims: [[-5, -5, 0, 0, 0, -10], [5, 5, 0, 0, 0, 10]]
   speed_lims: [[30, 45], [30, 45]]
+  free_speed: 100
+  sort_on: true
 
 sensor:
   name: tactip-127
@@ -32,10 +30,10 @@ sensor:
     height: 1080 # 1080 # 480 # 768 # 960
     fps: 120.0
     writer_workers: 8 # Concurrent image writers (increase carefully)
-    png_compression: 4
+    png_compression: 1
     storage_format: zip # png # zip
   process_images:
-    single_channel: gray
+    single_channel: blue
 
 ft_sensor:
   ip: 192.168.1.187 # 192.168.1.1

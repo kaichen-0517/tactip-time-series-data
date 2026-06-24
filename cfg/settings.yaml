@@ -13,5 +13,5 @@ globals:
   SHEAR: [shear_x, shear_y, shear_z, shear_Rx, shear_Ry, shear_Rz]
   WRENCH: [force_x, force_y, force_z, torque_x, torque_y, torque_z]
   SPEED: [linear_speed, angular_speed]
-  REFERENCE: 0
+  REFERENCE: null
   
