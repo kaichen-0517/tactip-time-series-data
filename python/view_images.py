@@ -1,3 +1,5 @@
+""" View images. """
+
 import os
 import cv2
 

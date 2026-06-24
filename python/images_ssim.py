@@ -1,3 +1,5 @@
+""" Generate image SSIM figure and csv data. """
+
 import os
 import glob
 import numpy as np
@@ -59,8 +61,8 @@ def compute_ssim_curve(folder_path, output_path=None):
 
 
 if __name__ == "__main__":
-    base_dir = f"./tactile_data/ur5/tactip-127"
-    target_folder = f"{base_dir}/surface-zRxy-June19-calibration"
+    base_dir = f"./temp/tactile_data/ur5/tactip-127"
+    target_folder = f"{base_dir}/surface-zRxy-June19-calibration-without_skin"
     for item in tqdm(os.listdir(target_folder), total=len(os.listdir(target_folder))):
         folder = os.path.join(target_folder, item)
         if os.path.isdir(folder) and item.startswith("run_"):
