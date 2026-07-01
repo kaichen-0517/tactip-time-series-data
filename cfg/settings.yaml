@@ -1,5 +1,5 @@
 settings:
-  path: /media/chris/Data/tactip-time-series-data/tactile_data
+  path: /mnt/y/tactip-time-series-data/tactile_data
   seed: 42                     # for repeatable random numbers
   overwrite_on: false           # Overwrite existing data
   restore_on: true             # Restore original data from backup before processing

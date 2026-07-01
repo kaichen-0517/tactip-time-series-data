@@ -1,0 +1,28 @@
+# @package _global_
+
+defaults:
+  - /runtime/base
+  - /collect: surface_z_ur_Silvia
+  - _self_
+
+settings:
+  overwrite_on: true
+
+collect:
+  data_dirs: [""]
+  sample_nums: [0]
+  name: surface-z-June26-Silvia
+  experiment: ${collect.robot}/${sensor.name}/${collect.name}
+  ip: 192.168.1.164
+  fixed_speed: true
+  sort_on: false
+  experiment_repeated_nums: 10
+
+sensor:
+  name: tactip-127
+  exposure: -9
+  width: 1280 # 1920 # 640 # 1024 # 1280
+  height: 960
+  grayscale_on: false
+  process_images: null
+

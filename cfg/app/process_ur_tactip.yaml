@@ -8,7 +8,7 @@ defaults:
  - _self_
 
 collect:
-  name: surface-zRxy-10Jun-calibrate-2
+  name: surface-zRxy-June19-calibration-without_skin
   # sample_nums: 10
   data_dirs: [train, val]  
   experiment: ${collect.robot}/${sensor.name}/${collect.name}
@@ -17,11 +17,20 @@ globals:
   REFERENCE: null 
 
 sensor:
-  # process_images: null
+  process_images: null
+  # process_images:
+  #   visualise_on: true
 
-  process_markers: # null
-    visualise_on: true
-    debug: true
-    process_graph: true
+  process_markers: null
+    # visualise_on: true
+    # debug: true
+    # process_graph: null
+
+  process_data:
+    image_timestamp_offet: 0  # s
+    robot_timestamp_offet: 0
+    ft_timestamp_offet: 0 # 32e-3     # ms
+    image_fps: ${sensor.camera.fps}
+
 
 

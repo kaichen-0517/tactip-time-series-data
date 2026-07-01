@@ -11,7 +11,7 @@ def zip_csv_files(folder_path, output_zip_path):
                 zipf.write(file_path, arcname=file_name)
 
 
-target_folder = "./tactile_data/ur5/tactip-127/surface-zRxy-10Jun-speed-2"
+target_folder = "./tactile_data/ur5/tactip-127/surface-zRxy-June19-calibration-without_skin"
 
 # target.csv
 zip_csv_files(target_folder, f"{target_folder}/target.zip")

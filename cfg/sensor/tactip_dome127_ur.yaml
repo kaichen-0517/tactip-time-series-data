@@ -37,4 +37,4 @@ process_markers:
   detector_kwargs:
     binary_threshold: [59, -29]
     morphology_ksize: 11
-    size_filter: [0.3, 3]
+    size_filter: [0.35, 3]

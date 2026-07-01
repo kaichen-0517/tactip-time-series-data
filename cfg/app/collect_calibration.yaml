@@ -12,16 +12,16 @@ globals:
   REFERENCE: null
 
 collect:
-  name: surface-zRxy-June19-calibration-without_skin
-  sample_nums: 6
+  name: surface-zRxy-June19-calibration
+  # sample_nums: 6
   experiment: ${collect.robot}/${sensor.name}/${collect.name}
   ip: 192.168.1.164
   fixed_speed: false
   run_calibration: true
   classic_data: false
-  pose_lims: [[0, 0, 5, 0, 0, 0], [0, 0, 5, 0, 0, 0]]
-  shear_lims: [[0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]]
-  speed_lims: [[30, 45], [30, 45]]
+  pose_lims: [[0, 0, 5, 0, 0, 0], [0, 0, 5, 0, 0, 0], [0, 0, 1, 0, 0, 0]]
+  shear_lims: [[0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]]
+  speed_lims: [[10, 20],[40, 80],[5, 10]]
 
 sensor:
   name: tactip-127
@@ -35,7 +35,7 @@ sensor:
     png_compression: 4
     storage_format: zip # png # zip
   process_images:
-    single_channel: gray
+    single_channel: blue # gray
 
 ft_sensor:
   ip: 192.168.1.187 # 192.168.1.1
